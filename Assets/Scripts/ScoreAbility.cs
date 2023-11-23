@@ -3,24 +3,28 @@ using UnityEngine;
 [CreateAssetMenu]
 public class ScoreAbility : Ability
 {
-    
+    [SerializeField] private Sprite player;
+    [SerializeField] private Sprite scorePlayer;
+
     public override void Active(GameObject parent)
     {
-        
-        Player player = parent.GetComponent<Player>();
+        Player playerCom = parent.GetComponent<Player>();
         SpriteRenderer spriteRenderer = parent.GetComponent<SpriteRenderer>();
+        ParticleSystem particleSystem = parent.GetComponent<ParticleSystem>();
+        particleSystem.textureSheetAnimation.SetSprite(0, scorePlayer);
 
-        player.isActiveScoreAbility = true;
-        spriteRenderer.color = Color.blue;
-
+        playerCom.isActiveScoreAbility = true;
+        spriteRenderer.sprite = scorePlayer;
     }
 
     public override void Cooldown(GameObject parent)
     {
-        Player player = parent.GetComponent<Player>();
+        Player playerCom = parent.GetComponent<Player>();
         SpriteRenderer spriteRenderer = parent.GetComponent<SpriteRenderer>();
-        
-        player.isActiveScoreAbility = false;
-        spriteRenderer.color = new Color(255,198,0);
+        ParticleSystem particleSystem = parent.GetComponent<ParticleSystem>();
+        particleSystem.textureSheetAnimation.SetSprite(0, player);
+
+        playerCom.isActiveScoreAbility = false;
+        spriteRenderer.sprite = player;
     }
 }

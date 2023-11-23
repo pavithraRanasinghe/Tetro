@@ -11,8 +11,8 @@ public class GameplayManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text _scoreText;
     [SerializeField] private GameObject _scorePrefabs;
-    [SerializeField] private List<Obstacle> _obstacles;
-    [SerializeField] private Player _player;
+    private List<Obstacle> _obstacles;
+    private Player _player;
     [SerializeField] private List<GameObject> _abilityPrefabs;
     
 
@@ -38,7 +38,6 @@ public class GameplayManager : MonoBehaviour
         score = 0;
         _scoreText.text = score.ToString();
         SpawnScore();
-        Instantiate(_abilityPrefabs[1]);
     }
 
     private void Update()

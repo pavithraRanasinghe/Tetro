@@ -15,3 +15,5 @@ MonoBehaviour:
   name: score
   cooldownTime: 2
   activeTime: 6
+  player: {fileID: 21300000, guid: 6c570478aaee0d2d8a507b3c9904b086, type: 3}
+  scorePlayer: {fileID: 21300000, guid: efc4a4dd0df7d08a0b1c9498d20cd519, type: 3}

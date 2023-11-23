@@ -44,13 +44,13 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        /*if(collision.CompareTag("Obstacle") && !isStealth)
+        if(collision.CompareTag("Obstacle") && !isStealth)
         {
             Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
             SoundManager.Instance.PlaySound(_loseClip);
             _gm.GameEnded();
             return;
-        }*/
+        }
 
         if(collision.CompareTag("Score"))
         {
