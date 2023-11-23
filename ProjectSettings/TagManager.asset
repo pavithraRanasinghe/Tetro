@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Obstacle
   - Score
+  - Ability
+  - Timer
   layers:
   - Default
   - TransparentFX

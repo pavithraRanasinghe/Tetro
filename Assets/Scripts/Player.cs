@@ -15,9 +15,13 @@ public class Player : MonoBehaviour
 
 
     private bool _canClick;
+    public bool isStealth;
+    public bool isActiveScoreAbility;
 
     private void Awake()
     {
+        isStealth = false;
+        isActiveScoreAbility = false;
         _canClick = true;
         level = 0;
         currentRadius = _startRadius;
@@ -40,22 +44,28 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Obstacle"))
+        /*if(collision.CompareTag("Obstacle") && !isStealth)
         {
             Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
             SoundManager.Instance.PlaySound(_loseClip);
             _gm.GameEnded();
             return;
-        }
+        }*/
 
         if(collision.CompareTag("Score"))
         {
             Destroy(Instantiate(_scoreParticlePrefab, transform.position, Quaternion.identity),1f);
             SoundManager.Instance.PlaySound(_pointClip);
-            _gm.UpdateScore();
+            _gm.UpdateScore(isActiveScoreAbility);
             collision.gameObject.GetComponent<Score>().ScoreAdded();
             _gm.ChangeRotation();
             return;
+        }
+
+        if (collision.CompareTag("Ability"))
+        {
+            gameObject.GetComponent<AbilityHolder>().FindAbility(collision.gameObject);
+            collision.gameObject.GetComponent<AbilityPicker>().Picked();
         }
     }
 

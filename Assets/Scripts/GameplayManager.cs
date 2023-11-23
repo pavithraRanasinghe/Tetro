@@ -1,8 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class GameplayManager : MonoBehaviour
 {
@@ -10,9 +13,14 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] private GameObject _scorePrefabs;
     [SerializeField] private List<Obstacle> _obstacles;
     [SerializeField] private Player _player;
+    [SerializeField] private List<GameObject> _abilityPrefabs;
+    
 
-    public int _score;
-    private int _rotationUpdateValue = 10;
+    public int score;
+    private int _rotationUpdateValue;
+    private int _abilityUpdateValue;
+    
+    public bool readyAbility;
 
     private void Start()
     {
@@ -23,16 +31,37 @@ public class GameplayManager : MonoBehaviour
     private void Awake()
     {
         GameManager.Instance.IsInitialized = true;
-
-        _score = 0;
-        _scoreText.text = _score.ToString();
+        
+        _rotationUpdateValue = Random.Range(8,15);
+        _abilityUpdateValue = Random.Range(5,15);
+        readyAbility = true;
+        score = 0;
+        _scoreText.text = score.ToString();
         SpawnScore();
+        Instantiate(_abilityPrefabs[1]);
     }
 
-    public void UpdateScore()
+    private void Update()
     {
-        _score++;
-        _scoreText.text = _score.ToString();
+        if (score == _abilityUpdateValue && readyAbility)
+        {
+            SpawnAbility();
+            int lastMin = _abilityUpdateValue;
+            _abilityUpdateValue = Random.Range(lastMin + 12, lastMin + 22);
+        }
+    }
+
+    public void UpdateScore(bool isActiveScoreAbility)
+    {
+        if (isActiveScoreAbility)
+        {
+            score += 2;
+        }
+        else
+        {
+            score++;   
+        }
+        _scoreText.text = score.ToString();
         SpawnScore();
     }
 
@@ -41,9 +70,15 @@ public class GameplayManager : MonoBehaviour
         Instantiate(_scorePrefabs);
     }
 
+    private void SpawnAbility()
+    {
+        int selectedAbilityIndex = Random.Range(0, _abilityPrefabs.Count);
+        Instantiate(_abilityPrefabs[selectedAbilityIndex]);
+    }
+
     public void GameEnded()
     {
-        GameManager.Instance.CurrentScore = _score;
+        GameManager.Instance.CurrentScore = score;
         StartCoroutine(GameOver());
     }
 
@@ -55,7 +90,7 @@ public class GameplayManager : MonoBehaviour
 
     public void ChangeRotation()
     {
-        if (_score == _rotationUpdateValue)
+        if (score == _rotationUpdateValue)
         {
             foreach (Obstacle obstacle in _obstacles)
             {
