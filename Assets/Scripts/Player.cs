@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
 
 public class Player : MonoBehaviour
@@ -29,10 +30,13 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if(_canClick && Input.GetMouseButtonDown(0))
+        if (!EventSystem.current.IsPointerOverGameObject())
         {
-            StartCoroutine(ChangeRadius());
-            SoundManager.Instance.PlaySound(_moveClip);
+            if(_canClick && Input.GetMouseButtonDown(0))
+            {
+                StartCoroutine(ChangeRadius());
+                SoundManager.Instance.PlaySound(_moveClip);
+            }   
         }
     }
     private void FixedUpdate()

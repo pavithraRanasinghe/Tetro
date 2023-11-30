@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private TMP_Text _scoreText;
     [SerializeField] private TMP_Text _newBestText;
     [SerializeField] private TMP_Text _bestScoreText;
+    [SerializeField] private List<GameObject> _highScorePrefabs;
+    public Transform center_transform;
 
     private void Awake()
     {
@@ -34,10 +37,14 @@ public class MainMenuManager : MonoBehaviour
         int currentScore = GameManager.Instance.CurrentScore;
         int highScore = GameManager.Instance.HighScore;
 
-        if(currentScore > highScore)
+        if(currentScore > 1)
         {
             _newBestText.gameObject.SetActive(true);
             GameManager.Instance.HighScore = currentScore;
+            foreach (GameObject _highScorePrefab in _highScorePrefabs)
+            {
+                Instantiate(_highScorePrefab, center_transform.position, Quaternion.identity);
+            }
         }
         else
         {
