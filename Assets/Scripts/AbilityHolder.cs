@@ -53,9 +53,9 @@ public class AbilityHolder : MonoBehaviour
         }
     }
 
-    public void FindAbility(GameObject pickedAbility)
+    public void ActivateAbility(string pickedAbilityName)
     {
-        _ability = abilities.Find(ability => ability.name == pickedAbility.name);
+        _ability = abilities.Find(ability => ability.name == pickedAbilityName);
         _state = AbilityState.Ready;
     }
 

@@ -37,7 +37,7 @@ public class MainMenuManager : MonoBehaviour
         int currentScore = GameManager.Instance.CurrentScore;
         int highScore = GameManager.Instance.HighScore;
 
-        if(currentScore > 1)
+        if(currentScore > highScore)
         {
             _newBestText.gameObject.SetActive(true);
             GameManager.Instance.HighScore = currentScore;

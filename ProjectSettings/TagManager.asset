@@ -8,6 +8,7 @@ TagManager:
   - Score
   - Ability
   - Timer
+  - Continue_Timer
   layers:
   - Default
   - TransparentFX

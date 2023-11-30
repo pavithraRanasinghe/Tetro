@@ -11,7 +11,7 @@ public class GameplayManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text _scoreText;
     [SerializeField] private GameObject _scorePrefabs;
-    private List<Obstacle> _obstacles; 
+    private List<Obstacle> _obstacles;
     private Player _player;
     [SerializeField] private List<GameObject> _abilityPrefabs;
 

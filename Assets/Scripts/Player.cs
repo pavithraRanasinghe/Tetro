@@ -13,12 +13,13 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject _explosionPrefab, _scoreParticlePrefab;
     [SerializeField] private float _rotateSpeed;
     [SerializeField] private Transform _rotateTransform;
+    public GameOverController _gameOverController;
 
 
     private bool _canClick;
     public bool isStealth;
     public bool isActiveScoreAbility;
-
+    
     private void Awake()
     {
         isStealth = false;
@@ -52,7 +53,7 @@ public class Player : MonoBehaviour
         {
             Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
             SoundManager.Instance.PlaySound(_loseClip);
-            _gm.GameEnded();
+            _gameOverController.GameOver();
             return;
         }
 
@@ -68,12 +69,11 @@ public class Player : MonoBehaviour
 
         if (collision.CompareTag("Ability"))
         {
-            gameObject.GetComponent<AbilityHolder>().FindAbility(collision.gameObject);
+            gameObject.GetComponent<AbilityHolder>().ActivateAbility(collision.gameObject.name);
             collision.gameObject.GetComponent<AbilityPicker>().Picked();
         }
     }
-
-
+    
     [SerializeField] private float _startRadius;
     [SerializeField] private float _moveTime;
 
