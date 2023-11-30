@@ -14,13 +14,14 @@ public class GameplayManager : MonoBehaviour
     private List<Obstacle> _obstacles;
     private Player _player;
     [SerializeField] private List<GameObject> _abilityPrefabs;
-    
+
 
     public int score;
     private int _rotationUpdateValue;
     private int _abilityUpdateValue;
-    
+
     public bool readyAbility;
+    private float _abilityDuration = 5.0f;
 
     private void Start()
     {
@@ -31,9 +32,9 @@ public class GameplayManager : MonoBehaviour
     private void Awake()
     {
         GameManager.Instance.IsInitialized = true;
-        
-        _rotationUpdateValue = Random.Range(8,15);
-        _abilityUpdateValue = Random.Range(5,15);
+
+        _rotationUpdateValue = Random.Range(8, 15);
+        _abilityUpdateValue = Random.Range(3, 8);
         readyAbility = true;
         score = 0;
         _scoreText.text = score.ToString();
@@ -46,7 +47,7 @@ public class GameplayManager : MonoBehaviour
         {
             SpawnAbility();
             int lastMin = _abilityUpdateValue;
-            _abilityUpdateValue = Random.Range(lastMin + 12, lastMin + 22);
+            _abilityUpdateValue = Random.Range(lastMin + 8, lastMin + 15);
         }
     }
 
@@ -58,8 +59,9 @@ public class GameplayManager : MonoBehaviour
         }
         else
         {
-            score++;   
+            score++;
         }
+
         _scoreText.text = score.ToString();
         SpawnScore();
     }
@@ -72,7 +74,8 @@ public class GameplayManager : MonoBehaviour
     private void SpawnAbility()
     {
         int selectedAbilityIndex = Random.Range(0, _abilityPrefabs.Count);
-        Instantiate(_abilityPrefabs[selectedAbilityIndex]);
+        GameObject ability = Instantiate(_abilityPrefabs[selectedAbilityIndex]);
+        StartCoroutine(UpdateTimer(ability));
     }
 
     public void GameEnded()
@@ -101,5 +104,17 @@ public class GameplayManager : MonoBehaviour
             int lastMin = _rotationUpdateValue;
             _rotationUpdateValue = Random.Range(lastMin + 2, lastMin + 10);
         }
+    }
+
+    private IEnumerator UpdateTimer(GameObject ability)
+    {
+        while (_abilityDuration > 0)
+        {
+            _abilityDuration -= Time.deltaTime;
+            yield return null;
+        }
+
+        Destroy(ability);
+        _abilityDuration = 5.0f;
     }
 }
