@@ -18,6 +18,7 @@ public class GameplayManager : MonoBehaviour
 
     public int score;
     private int _rotationUpdateValue;
+    private int _speedUpValue;
     private int _abilityUpdateValue;
 
     public bool readyAbility;
@@ -34,6 +35,7 @@ public class GameplayManager : MonoBehaviour
         GameManager.Instance.IsInitialized = true;
 
         _rotationUpdateValue = Random.Range(8, 15);
+        _speedUpValue = Random.Range(15, 20);
         _abilityUpdateValue = Random.Range(3, 8);
         readyAbility = true;
         score = 0;
@@ -103,6 +105,18 @@ public class GameplayManager : MonoBehaviour
 
             int lastMin = _rotationUpdateValue;
             _rotationUpdateValue = Random.Range(lastMin + 2, lastMin + 10);
+        }
+        
+        // Speed up Obstacles
+        if (score == _speedUpValue)
+        {
+            foreach (Obstacle obstacle in _obstacles)
+            {
+                obstacle.SpeedUpObstacle();
+            }
+            
+            int oldValue = _speedUpValue;
+            _speedUpValue = Random.Range(oldValue + 10, oldValue + 20);
         }
     }
 

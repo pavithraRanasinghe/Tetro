@@ -338,6 +338,7 @@ MonoBehaviour:
   - {fileID: 8943435393233976447, guid: fff21f50233f555a2b1843490d0733e3, type: 3}
   - {fileID: 8943435393233976447, guid: f97d916c27b04c9e690e4f927f4a9c97, type: 3}
   center_transform: {fileID: 600287373}
+  bannerAdObj: {fileID: 4693981952843126416, guid: 0fbefe38a69ff8615960d3de2e107b00, type: 3}
   _animationTime: 1.6
   _speedCurve:
     serializedVersion: 2
@@ -677,7 +678,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 654
+  m_text: 000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 30f351b8f6cf269e6897f421796d9f36, type: 2}
   m_sharedMaterial: {fileID: -8098037315330084357, guid: 30f351b8f6cf269e6897f421796d9f36, type: 2}
@@ -1009,7 +1010,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 654
+  m_text: 000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 30f351b8f6cf269e6897f421796d9f36, type: 2}
   m_sharedMaterial: {fileID: -8098037315330084357, guid: 30f351b8f6cf269e6897f421796d9f36, type: 2}
@@ -1102,7 +1103,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 288}
+  m_AnchoredPosition: {x: 0, y: 400}
   m_SizeDelta: {x: 1024, y: 512}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1634245278
@@ -1138,10 +1139,10 @@ RectTransform:
   m_Children:
   - {fileID: 279794877}
   - {fileID: 1584325735}
-  - {fileID: 1697808592}
-  - {fileID: 1602891027}
   - {fileID: 796671522}
   - {fileID: 1098817383}
+  - {fileID: 1697808592}
+  - {fileID: 1602891027}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1246,7 +1247,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 128}
+  m_AnchoredPosition: {x: 0, y: 250}
   m_SizeDelta: {x: 1024, y: 512}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1697808593

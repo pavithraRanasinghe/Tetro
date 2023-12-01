@@ -618,7 +618,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: FAILED
+  m_text: LoSE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 30f351b8f6cf269e6897f421796d9f36, type: 2}
   m_sharedMaterial: {fileID: -8098037315330084357, guid: 30f351b8f6cf269e6897f421796d9f36, type: 2}
@@ -1573,6 +1573,7 @@ MonoBehaviour:
   pausePanel: {fileID: 955341180}
   pauseButton: {fileID: 609759613}
   player: {fileID: 1687058314}
+  bannerAdObj: {fileID: 4693981952843126416, guid: 0fbefe38a69ff8615960d3de2e107b00, type: 3}
 --- !u!1001 &1129369912
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1868,7 +1869,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1835809211}
         m_TargetAssemblyTypeName: GameOverController, Assembly-CSharp
-        m_MethodName: ContinueGame
+        m_MethodName: PlayRewardedAd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2661,7 +2662,8 @@ MonoBehaviour:
   pauseButton: {fileID: 609759613}
   player: {fileID: 1687058314}
   continueButton: {fileID: 1252667058}
-  stealthAbility: {fileID: 0}
+  bannerAdObj: {fileID: 4693981952843126416, guid: 0fbefe38a69ff8615960d3de2e107b00, type: 3}
+  rewardedAdObj: {fileID: 149565282426931799, guid: 83027eab364758bb482b8c1968479414, type: 3}
   _gameplayManager: {fileID: 1167081541}
 --- !u!1 &1904540365
 GameObject:

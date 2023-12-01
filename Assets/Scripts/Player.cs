@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using Random = UnityEngine.Random;
 
 public class Player : MonoBehaviour
 {
@@ -28,10 +27,23 @@ public class Player : MonoBehaviour
         level = 0;
         currentRadius = _startRadius;
     }
+    
+    private bool IsPointerOverUI()
+    {
+        for (int i = 0; i < Input.touchCount; i++)
+        {
+            Touch touch = Input.GetTouch(i);
+            if (EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 
     private void Update()
     {
-        if (!EventSystem.current.IsPointerOverGameObject())
+        if (!IsPointerOverUI())
         {
             if(_canClick && Input.GetMouseButtonDown(0))
             {

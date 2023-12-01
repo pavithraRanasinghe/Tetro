@@ -9,10 +9,24 @@ public class GameOverController : MonoBehaviour
     public GameObject pauseButton;
     public GameObject player;
     public GameObject continueButton;
-    private bool _istried = false;
-
-    [SerializeField] private GameObject stealthAbility;
+    public GameObject bannerAdObj;
+    public GameObject rewardedAdObj;
     [SerializeField] private GameplayManager _gameplayManager;
+    
+    private BannerAd _bannerAd;
+    private RewardedAdController _rewardedAdController;
+
+
+    private bool _istried = false;
+    private void Start()
+    {
+        _bannerAd = bannerAdObj.GetComponent<BannerAd>();
+        _rewardedAdController = rewardedAdObj.GetComponent<RewardedAdController>();
+        
+        _bannerAd.LoadAd();
+        _rewardedAdController.LoadRewardedAd();
+    }
+
     public void GameOver()
     {
         if (!_istried)
@@ -36,6 +50,11 @@ public class GameOverController : MonoBehaviour
         }
     }
 
+    public void PlayRewardedAd()
+    {
+        _rewardedAdController.ShowRewardedAd();
+    }
+
     public void ContinueGame()
     {
         player.GetComponent<AbilityHolder>().ActivateAbility("stealth");
@@ -44,6 +63,7 @@ public class GameOverController : MonoBehaviour
         player.GetComponent<SpriteRenderer>().enabled = true;
         player.GetComponent<ParticleSystem>().Play();
         Time.timeScale = 1;
+        _bannerAd.DestroyBannerAd();
     }
     
     IEnumerator TimerOver(Image timerImage)

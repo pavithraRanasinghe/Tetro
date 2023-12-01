@@ -15,4 +15,9 @@ public class Obstacle : MonoBehaviour
     {
         _rotateSpeed = -_rotateSpeed;
     }
+
+    public void SpeedUpObstacle()
+    {
+        _rotateSpeed += 2;
+    }
 }
