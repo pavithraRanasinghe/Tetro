@@ -126,4 +126,9 @@ public class RewardedAdController : MonoBehaviour
                            "with error : " + error);
         };
     }
+
+    public bool CanShowAd()
+    {
+        return _rewardedAd.CanShowAd();
+    }
 }

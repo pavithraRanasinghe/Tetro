@@ -17,9 +17,6 @@ public class MainMenuManager : MonoBehaviour
     private void Awake()
     {
         _bestScoreText.text = GameManager.Instance.HighScore.ToString();
-
-        _bannerAd = bannerAdObj.GetComponent<BannerAd>();
-        _bannerAd.LoadAd();
         if(!GameManager.Instance.IsInitialized)
         {
             _scoreText.gameObject.SetActive(false);
@@ -29,6 +26,9 @@ public class MainMenuManager : MonoBehaviour
         {
             StartCoroutine(ShowScore());
         }
+        
+        _bannerAd = bannerAdObj.GetComponent<BannerAd>();
+        _bannerAd.LoadBannerAd();
     }
 
     [SerializeField] private float _animationTime;
@@ -80,8 +80,4 @@ public class MainMenuManager : MonoBehaviour
         SoundManager.Instance.PlaySound(_clickSound);
         GameManager.Instance.GoToGameplay();
     }
-
-
-
-
 }

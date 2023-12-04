@@ -11,7 +11,7 @@ public class PauseController : MonoBehaviour
     private void Start()
     {
         _bannerAd = bannerAdObj.GetComponent<BannerAd>();
-        _bannerAd.LoadAd();
+        _bannerAd.LoadBannerAd();
     }
 
     public void PauseGame()

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -45,7 +46,7 @@ public class Player : MonoBehaviour
     {
         if (!IsPointerOverUI())
         {
-            if(_canClick && Input.GetMouseButtonDown(0))
+            if (_canClick && Input.GetMouseButtonDown(0))
             {
                 StartCoroutine(ChangeRadius());
                 SoundManager.Instance.PlaySound(_moveClip);

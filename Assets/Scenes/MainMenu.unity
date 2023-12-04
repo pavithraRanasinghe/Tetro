@@ -337,7 +337,7 @@ MonoBehaviour:
   - {fileID: 8943435393233976447, guid: 0ba88ebe04c450c49b06575203f48731, type: 3}
   - {fileID: 8943435393233976447, guid: fff21f50233f555a2b1843490d0733e3, type: 3}
   - {fileID: 8943435393233976447, guid: f97d916c27b04c9e690e4f927f4a9c97, type: 3}
-  center_transform: {fileID: 600287373}
+  centerTransform: {fileID: 600287373}
   bannerAdObj: {fileID: 4693981952843126416, guid: 0fbefe38a69ff8615960d3de2e107b00, type: 3}
   _animationTime: 1.6
   _speedCurve:

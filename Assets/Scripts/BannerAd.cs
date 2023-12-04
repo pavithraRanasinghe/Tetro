@@ -35,7 +35,7 @@ public class BannerAd : MonoBehaviour
         _bannerView = new BannerView(_adUnitId, AdSize.Banner, AdPosition.Bottom);
     }
     
-    public void LoadAd()
+    public void LoadBannerAd()
     {
         if(_bannerView == null)
         {
@@ -43,7 +43,7 @@ public class BannerAd : MonoBehaviour
         }
         var adRequest = new AdRequest();
         Debug.Log("Loading banner ad.");
-        _bannerView.LoadAd(adRequest);
+        if (_bannerView != null) _bannerView.LoadAd(adRequest);
     }
     
     public void DestroyBannerAd()

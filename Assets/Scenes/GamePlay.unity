@@ -863,7 +863,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 256}
-  m_SizeDelta: {x: 1024, y: 512}
+  m_SizeDelta: {x: 350, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &657638084
 MonoBehaviour:
@@ -1574,6 +1574,72 @@ MonoBehaviour:
   pauseButton: {fileID: 609759613}
   player: {fileID: 1687058314}
   bannerAdObj: {fileID: 4693981952843126416, guid: 0fbefe38a69ff8615960d3de2e107b00, type: 3}
+--- !u!1001 &964203308
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 149565282426931799, guid: 83027eab364758bb482b8c1968479414, type: 3}
+      propertyPath: m_Name
+      value: RewardedAd
+      objectReference: {fileID: 0}
+    - target: {fileID: 634331790825705521, guid: 83027eab364758bb482b8c1968479414, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 634331790825705521, guid: 83027eab364758bb482b8c1968479414, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 634331790825705521, guid: 83027eab364758bb482b8c1968479414, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 634331790825705521, guid: 83027eab364758bb482b8c1968479414, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 634331790825705521, guid: 83027eab364758bb482b8c1968479414, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 634331790825705521, guid: 83027eab364758bb482b8c1968479414, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 634331790825705521, guid: 83027eab364758bb482b8c1968479414, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 634331790825705521, guid: 83027eab364758bb482b8c1968479414, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 634331790825705521, guid: 83027eab364758bb482b8c1968479414, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 634331790825705521, guid: 83027eab364758bb482b8c1968479414, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434459746529354545, guid: 83027eab364758bb482b8c1968479414, type: 3}
+      propertyPath: gameOver
+      value: 
+      objectReference: {fileID: 1835809206}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 83027eab364758bb482b8c1968479414, type: 3}
+--- !u!1 &964203309 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 149565282426931799, guid: 83027eab364758bb482b8c1968479414, type: 3}
+  m_PrefabInstance: {fileID: 964203308}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1129369912
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2663,7 +2729,7 @@ MonoBehaviour:
   player: {fileID: 1687058314}
   continueButton: {fileID: 1252667058}
   bannerAdObj: {fileID: 4693981952843126416, guid: 0fbefe38a69ff8615960d3de2e107b00, type: 3}
-  rewardedAdObj: {fileID: 149565282426931799, guid: 83027eab364758bb482b8c1968479414, type: 3}
+  rewardedAdObj: {fileID: 964203309}
   _gameplayManager: {fileID: 1167081541}
 --- !u!1 &1904540365
 GameObject:
@@ -2868,6 +2934,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1167081541}
     - target: {fileID: 488358532658213963, guid: 3af30e2725237bd29900b0ee02050af0, type: 3}
+      propertyPath: pauseButton
+      value: 
+      objectReference: {fileID: 609759615}
+    - target: {fileID: 488358532658213963, guid: 3af30e2725237bd29900b0ee02050af0, type: 3}
       propertyPath: _gameOverController
       value: 
       objectReference: {fileID: 1835809211}
@@ -2939,3 +3009,4 @@ SceneRoots:
   - {fileID: 298333229}
   - {fileID: 1420052390}
   - {fileID: 1167081540}
+  - {fileID: 964203308}
