@@ -20,18 +20,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private const string highScoreKey = "HighScore";
+    private const string HighScoreKey = "HighScore";
+    private const string TotalScoreKey = "TotalScore";
 
     public int HighScore
     {
-        get
-        {
-            return PlayerPrefs.GetInt(highScoreKey,0);
-        }
-        set
-        {
-            PlayerPrefs.SetInt(highScoreKey, value);
-        }
+        get => PlayerPrefs.GetInt(HighScoreKey,0);
+        set => PlayerPrefs.SetInt(HighScoreKey, value);
+    }
+    public int TotalScore
+    {
+        get => PlayerPrefs.GetInt(TotalScoreKey,0);
+        set => PlayerPrefs.SetInt(TotalScoreKey, PlayerPrefs.GetInt(TotalScoreKey)+value);
     }
 
     public int CurrentScore { get; set; }

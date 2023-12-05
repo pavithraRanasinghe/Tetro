@@ -59,4 +59,9 @@ public class AbilityHolder : MonoBehaviour
         _state = AbilityState.Ready;
     }
 
+    public void StopActivateAbility()
+    {
+        _state = AbilityState.Cooldown;
+    }
+
 }

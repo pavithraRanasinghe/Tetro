@@ -16,8 +16,7 @@ public class GameOverController : MonoBehaviour
 
     private BannerAd _bannerAd;
     private RewardedAdController _rewardedAdController;
-
-
+    
     private bool _istried = false;
 
     private void Start()
@@ -37,14 +36,20 @@ public class GameOverController : MonoBehaviour
             {
                 gameOverPanel.SetActive(true);
                 pauseButton.SetActive(false);
+                
                 GameObject timer = GameObject.FindGameObjectWithTag("Continue_Timer");
                 Image timerImage = timer.GetComponent<Image>();
                 timerImage.enabled = true;
                 AbilityTimer abilityTimer = timer.GetComponent<AbilityTimer>();
                 abilityTimer.ActivateTimer(5.0f);
                 StartCoroutine(TimerOver(timerImage));
-                player.SetActive(false);
+                
+                player.GetComponent<SpriteRenderer>().enabled = false;
+                player.GetComponent<ParticleSystem>().Stop();
+                player.GetComponent<Collider2D>().enabled = false;
                 _istried = true;
+                
+                HandleAbility();
             }
             else
             {
@@ -74,7 +79,9 @@ public class GameOverController : MonoBehaviour
         player.GetComponent<AbilityHolder>().ActivateAbility("stealth");
         gameOverPanel.SetActive(false);
         pauseButton.SetActive(true);
-        player.SetActive(true);
+        player.GetComponent<SpriteRenderer>().enabled = true;
+        player.GetComponent<ParticleSystem>().Play();
+        player.GetComponent<Collider2D>().enabled = true;
         Time.timeScale = 1;
         _bannerAd.DestroyBannerAd();
     }
@@ -86,5 +93,15 @@ public class GameOverController : MonoBehaviour
         continueButton.SetActive(false);
 
         _gameplayManager.GameEnded();
+    }
+
+    private void HandleAbility()
+    {
+        player.GetComponent<AbilityHolder>().StopActivateAbility();
+        GameObject ability = GameObject.FindGameObjectWithTag("Ability");
+        if (ability != null)
+        {
+            Destroy(ability);
+        }
     }
 }
